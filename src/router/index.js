@@ -12,7 +12,27 @@ const router = new VueRouter({
         {
             name: 'index',
             path: '/index',
-            component: () => import('@/views/index.vue')
+            component: () => import('@/views/index.vue'),
+            // redirect路由重定向  使用name来映射  登录index后 先展示hellow界面
+            redirect: { name: 'hellow' },
+            // 嵌套路由
+            children: [
+                {
+                    name: 'hellow',
+                    path: 'hellow',
+                    component: () => import('@/views/hellow.vue'),
+                },
+                {
+                    name: 'postList',
+                    path: 'postList',
+                    component: () => import('@/views/postList.vue'),
+                },
+                {
+                    name: 'postPubLish',
+                    path: 'postPubLish',
+                    component: () => import('@/views/postPubLish.vue'),
+                }
+            ]
         }
     ]
 })
