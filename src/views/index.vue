@@ -4,8 +4,10 @@
       <el-aside width="200px">
         <div class="logo" @click="$router.push({ name: 'index' })"></div>
         <!-- 导航栏 -->
+        <!-- default-active 当前激活菜单的index  -->
+        <!--  :default-active="$route.name" 刷新后默认展开已经打开的组件 -->
         <el-menu
-          default-active="2"
+          :default-active="$route.name"
           class="el-menu-vertical-demo"
           background-color="#545c64"
           text-color="#fff"
